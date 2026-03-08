@@ -16,6 +16,82 @@ Dit project is ontworpen voor de Raspberry Pi (OS Trixie) om temperatuur en luch
     └── index.php            # (En de eigen bestanden van leerlingen)
 ```
 
+#  Installatiestappen Datalogger (Script Overzicht)
+
+Het installatiescript doorloopt de volgende 6 stappen om je Raspberry Pi volledig in te richten als datalogger.
+
+---
+
+### STAP 1: Mappen en Bestanden organiseren
+In deze stap wordt de mappenstructuur in je home-directory (`~`) aangemaakt. De bestanden uit de repository worden naar hun definitieve plek verplaatst:
+* **`~/bashscripts/`**: Voor het installatiescript en documentatie.
+* **`~/pythonscripts/`**: Voor de Python-logica en scripts.
+* **`~/web/`**: Voor je bronbestanden van de website.
+
+---
+
+### STAP 2: Systeem Update & Software
+Het script werkt het besturingssysteem bij en installeert de noodzakelijke pakketten:
+* **Updates:** `sudo apt update && sudo apt upgrade -y` (met `$DPKG_OPTS` om configuratievragen te omzeilen).
+* **Webserver:** Apache2 en PHP 8.4.
+* **Database:** MariaDB Server.
+* **Python Tools:** `python3-venv` en `pip` voor bibliotheekbeheer.
+
+---
+
+### STAP 3: Database Configuratie
+De SQL-omgeving wordt ingericht voor de data-opslag:
+1. De database `temperatures` wordt aangemaakt.
+2. Een specifieke gebruiker `logger` krijgt rechten op deze database.
+3. De tabel `temperaturedata` wordt aangemaakt met kolommen voor:
+   * `dateandtime` (Datum en tijd van de meting)
+   * `sensor` (Naam/ID van de sensor)
+   * `temperature` (Temperatuur in Celsius)
+   * `humidity` (Luchtvochtigheid in %)
+
+
+
+---
+
+### STAP 4: Python Omgeving (venv)
+Er wordt een geïsoleerde virtuele omgeving (`dhtvenv`) aangemaakt in `~/pythonscripts/`. Hierin worden de bibliotheken geïnstalleerd die nodig zijn voor de hardware en dataverwerking:
+* `adafruit-circuitpython-dht`: Voor het uitlezen van de DHT22.
+* `matplotlib`: Voor het genereren van de temperatuurgrafieken.
+* `mysql-connector-python`: Om data naar de MariaDB database te sturen.
+
+---
+
+### INTERSPECTIE: Data Migratie
+Vóór de afronding biedt het script de mogelijkheid om oude data te importeren:
+* Er worden instructies getoond voor `mysqldump` op de bron-Pi.
+* Er wordt een `scp` commando gegenereerd met het actuele IP-adres van deze Pi.
+* Je kunt een `.sql` backup bestand importeren in de nieuwe tabel.
+
+---
+
+### STAP 5: Webserver Inrichten
+De bestanden uit je lokale `~/web/` map worden "live" gezet:
+* De bestanden worden gekopieerd naar `/var/www/html/`.
+* Er wordt een map `/var/www/html/afbeeldingen/` aangemaakt voor de grafieken.
+* De juiste rechten (`www-data`) worden toegekend zodat de webserver de bestanden kan lezen.
+
+---
+
+### STAP 6: Automatisering (Cron)
+Er wordt een configuratiebestand aangemaakt in `/etc/cron.d/datalogger`:
+* **Meting:** Elke 15 minuten voert de Pi `temperatuurlogger.py` uit.
+* **Grafiek:** Elke 15 minuten wordt `BewaarTempGrafiek.py` uitgevoerd. De resulterende afbeelding wordt automatisch naar de webmap gekopieerd.
+
+
+
+---
+
+## ✅ Installatie Voltooid
+Na deze stappen is het systeem volledig operationeel. Je kunt het dashboard bekijken via het IP-adres van de Raspberry Pi.
+
+
+
+---
 
 ## Snelle Start
 
