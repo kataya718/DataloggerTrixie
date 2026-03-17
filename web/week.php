@@ -6,7 +6,7 @@
 
 <div class="image-block">
     <h2>temperatuur</h2>
-    <img src="WeekVochtigheid.png" alt="Week temperatuur">
+    <img src="WeekTemperatuur.png" alt="Week temperatuur">
 </div>
 
 <div class="image-block">
