@@ -12,8 +12,15 @@ Dit project is ontworpen voor de Raspberry Pi (OS Trixie) om temperatuur en luch
 │   ├── temperatuurlogger.py
 │   ├── toondata.py
 │   └── BewaarTempGrafiek.py
-└── web/                     # Map voor webbestanden
-    └── index.php            # (En de eigen bestanden van leerlingen)
+└── web/                     # Map voor webbestanden            
+    ├── all.php
+    ├── climate.js
+    ├── dag.php
+    ├── footer.php
+    ├── index.php
+    ├── maand.php
+    └── week.php
+
 ```
 
 #  Installatiestappen Datalogger (Script Overzicht)
@@ -98,7 +105,7 @@ Na deze stappen is het systeem volledig operationeel. Je kunt het dashboard beki
 ### 1. Clone de repository
 Open de terminal op je Raspberry Pi en typ:
 ```bash
-git clone https://github.com/jmo2300/DataloggerTrixie
+git clone https://github.com/kataya718/DataloggerTrixie
 cd DataloggerTrixie
 
 ```
