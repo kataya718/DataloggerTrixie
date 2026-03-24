@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>pi18</title>
+    <title>raspberry pi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
