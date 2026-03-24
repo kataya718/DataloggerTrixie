@@ -1,0 +1,93 @@
+body {
+    background: #0b0b0b;
+    color: #e6e6e6;
+    font-family: monospace;
+    margin: 0;
+}
+
+header {
+    padding: 15px;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    color: #9e9e9e;
+}
+
+nav {
+    margin-top: 5px;
+}
+
+nav a {
+    color: #e6e6e6;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #9e9e9e;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #222;
+    padding: 6px 10px;
+}
+
+th {
+    color: #9e9e9e;
+}
+
+.image-block {
+    margin-bottom: 40px;
+}
+
+.image-block img {
+    max-width: 100%;
+    border: 1px solid #222;
+    background: #000;
+}
+
+footer {
+    padding: 10px 20px;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.image-row {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.image-row .image-block {
+    flex: 1;
+}
+
+/* mobiel */
+@media (max-width: 900px) {
+    .image-row {
+        flex-direction: column;
+    }
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: transparent; /* laat plugin het doen */
+}
