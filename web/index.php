@@ -25,7 +25,7 @@ mysqli_select_db($connectdb,$database)
 or die ("Cannot select database");
 
 // sql command that selects all entires from current time and X hours backwards
-$sql="SELECT * FROM temperaturedata WHERE dateandtime >= (NOW() - INTERVAL $hour                                                                                                                                                             s HOUR) order by dateandtime desc";
+$sql="SELECT * FROM temperaturedata WHERE dateandtime >= (NOW() - INTERVAL $hours HOUR) order by dateandtime desc";
 
 //NOTE: If you want to show all entries from current date in web page uncomment                                                                                                                                                              line below by removing //
 //$sql="select * from temperaturedata where date(dateandtime) = curdate();";
@@ -44,17 +44,17 @@ $temperatures = mysqli_query($connectdb,$sql);
 
   <h3>Temperatuur en vochtigheid - data </h3>
     <br>
-        <table width="800" border="1" cellpadding="1" cellspacing="1" align="cen                                                                                                                                                             ter">
+        <table width="800" border="1" cellpadding="1" cellspacing="1" align="center">
                         <tr>
-                        <th>Datum</th>
+                        <th>Date</th>
                         <th>Sensor</th>
-                        <th>Temperatuur</th>
-                        <th>Vochtigheid</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
                         <tr>
 
                         <?php
-                                // loop all the results that were read from data                                                                                                                                                             base and "draw" to web page
-                                while($temperature=mysqli_fetch_assoc($temperatu                                                                                                                                                             res)){
+                                // loop all the results that were read from database and "draw" to web page
+                                while($temperature=mysqli_fetch_assoc($temperatures)){
                                 echo "<tr>";
                                 echo "<td>".$temperature['dateandtime']."</td>";
                                 echo "<td>".$temperature['sensor']."</td>";
