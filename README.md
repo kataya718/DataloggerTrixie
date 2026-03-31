@@ -38,12 +38,23 @@ Na installatie: open het IP-adres van je Raspberry Pi in je browser.
 │   ├── leesdht.py
 │   ├── temperatuurlogger.py
 │   ├── toondata.py
+│   ├── MatplotlibDagTemperatuur.py
+│   ├── MatplotlibWeekTemperatuur.py
+│   ├── MatplotlibMaandTemperatuur.py
+│   ├── MatplotlibDagVochtigheid.py
+│   ├── MatplotlibWeekVochtigheid.py
+│   ├── MatplotlibMaandVochtigheid.py
 │   └── BewaarTempGrafiek.py
 └── web/
     ├── index.php
     ├── dag.php
     ├── week.php
     ├── maand.php
+    ├── all.php
+    ├── climate.js
+    ├── header.php
+    ├── footer.php
+    ├── style.css
     └── ...
 ```
 
