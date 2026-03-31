@@ -192,12 +192,12 @@ if stel_vraag "Stap 6: Cronjobs instellen in jouw persoonlijke crontab?"; then
     echo "0,15,30,45 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/temperatuurlogger.py" >> temp_cron
     echo "" >> temp_cron
     echo "# Elke 15 minuten de afbeelding verversen" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibDagTemperatuur.py" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibDagVochtigheid.py" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibWeekTemperatuur.py" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibWeekVochtigheid.py" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibMaandTemperatuur.py" >> temp_cron
-    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python /home/pi05/pythonscripts/MatplotlibMaandVochtigheid.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibDagTemperatuur.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibDagVochtigheid.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibWeekTemperatuur.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibWeekVochtigheid.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibMaandTemperatuur.py" >> temp_cron
+    echo "1,16,31,46 * * * * ~/pythonscripts/dhtvenv/bin/python ~/pythonscripts/MatplotlibMaandVochtigheid.py" >> temp_cron
     echo "" >> temp_cron
     echo "# Elke 15 minuten de afbeelding kopiëren naar webroot" >> temp_cron
     echo "2,17,32,47 * * * * sudo cp ~/DagTemperatuur.png /var/www/html/" >> temp_cron
